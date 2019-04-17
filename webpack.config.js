@@ -2,6 +2,9 @@ const webpack = require('webpack');
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
+const isProd = process.env.ENV === 'prod';
+const PUBLIC_PATH = isProd ? '/tester-match/' : '/';
+
 function root(filePath) {
   return path.resolve(__dirname, filePath);
 }
@@ -15,7 +18,7 @@ module.exports = {
 
   output: {
     path: root('dist'),
-    publicPath: '/',
+    publicPath: PUBLIC_PATH,
     filename: '[name].js',
   },
 
@@ -65,6 +68,7 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({
       template: root('src/index.html'),
+      publicPath: PUBLIC_PATH,
     }),
   ],
 };
