@@ -1,4 +1,4 @@
-# Applause match testers app
+# Tester match testers app
 
 ## Run project localy
 
